@@ -57,6 +57,8 @@ containerEl.children().css("display", "block");
 
 //Uses local storage data to fill out todays toDos
 function scheduleFiller(){
+
+    //Maybe only fill if date is the same (????)
     for (let i = 0; i < index; i++) {
         if (i == 0) {
             nineAM.val(tempArray[0]);

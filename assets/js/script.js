@@ -1,4 +1,5 @@
 //Targeting variable declarations for html
+//BUG TO BE FIXED: IF ENTERING ONLY IN LATER INDEXES IT FILTERS IT TO THE TOP OF THE PAGE WHEN REFRESHING
 var timeEl = $('#currentDay');
 var timeBlocksEl = $('#timeBlocks');
 var containerEl = $('#container');

@@ -1,5 +1,4 @@
 //Targeting variable declarations for html
-//BUG TO BE FIXED: IF ENTERING ONLY IN LATER INDEXES IT FILTERS IT TO THE TOP OF THE PAGE WHEN REFRESHING
 var timeEl = $('#currentDay');
 var timeBlocksEl = $('#timeBlocks');
 var containerEl = $('#container');
@@ -30,24 +29,26 @@ var btnFiveEl = $('#button5');
 var timer = moment().format("H");
 
 //Default specifications
-var index = 0;
-var toDo = [];
+var toDo = ["", "", "", "", "", "", "", "", ""];
+toDo = JSON.parse(localStorage.getItem(toDo));
 
 //Retrieving last data from local storage and updating
-if (!JSON.parse(localStorage.getItem(toDo))) {
+if (!toDo.length) {
+    //not working
     console.log("toDo is empty");
 }
 else{
-    toDo = JSON.parse(localStorage.getItem(toDo));
+
+    console.log("toDo is being brought in with value " + toDO);
 }
 
 if (JSON.parse(localStorage.getItem("index")) > 0) {
     index = JSON.parse(localStorage.getItem("index"));
-    console.log(index);
+    console.log("index is " + index);
 }
 
 //tempArray needs to be used as cannot directly manipulate toDo
-var tempArray = JSON.parse(localStorage.getItem("toDo"));
+var tempArray = toDo;
 
 
 //Putting calander date on html
@@ -59,8 +60,15 @@ containerEl.children().css("display", "block");
 //Uses local storage data to fill out todays toDos
 function scheduleFiller(){
 
+    console.log("toDo takes values " + toDo);
+    tempArray = JSON.parse(localStorage.getItem("toDo"));
+
+    for (let i = 0; i < tempArray.length; i++) {
+        console.log("tempArray["+i+"] takes value " + tempArray[i]);
+    }
     //Maybe only fill if date is the same (????)
     for (let i = 0; i < index; i++) {
+
         if (i == 0) {
             nineAM.val(tempArray[0]);
             console.log("toDo[0] takes value " + tempArray[0]);
@@ -79,7 +87,7 @@ function scheduleFiller(){
         }
 
         else if(i == 3){
-            twelvePM.val(tempArray[3]);
+            twelveAM.val(tempArray[3]);
             console.log("toDo[0] takes value " + tempArray[3]);
 
         }
@@ -283,9 +291,9 @@ scheduleFiller();
 
 //The btn click functions to save items to local storage
 btnNineEl.on('click', function(event){
-    temp = nineAM.val();
-    console.log(temp);
-    toDo.push(temp);
+    tempArray[0] = nineAM.val();
+    //console.log(temp);
+    toDo[0] = (tempArray[0]);
     localStorage.setItem("toDo", JSON.stringify(temp));
     index++;
     console.log("index is " + index);
@@ -293,74 +301,74 @@ btnNineEl.on('click', function(event){
 })
 
 btnTenEl.on('click', function(event){
-    temp = tenAM.val()
-    toDo.push(temp);
+    tempArray[1] = tenAM.val()
+    toDo[1] = (tempArray[1]);
     localStorage.setItem("toDo", JSON.stringify(toDo));
-    console.log(temp);
+    //console.log(temp);
     index++;
     console.log("index is " + index);
     localStorage.setItem("index", index);
 })
 
 btnElevenEl.on('click', function(event){
-    temp = elevenAM.val()
-    toDo.push(temp);
+    tempArray[2] = elevenAM.val()
+    toDo[2] = (tempArray[2]);
     localStorage.setItem("toDo", JSON.stringify(toDo));
-    console.log(temp);
+    //console.log(temp);
     index++;
     localStorage.setItem("index", index);
 })
 
 btnTwelveEl.on('click', function(event){
-    temp = twelveAM.val()
-    toDo.push(temp);
+    tempArray[3] = twelveAM.val()
+    toDo[3] = (tempArray[3]);
     localStorage.setItem("toDo", JSON.stringify(toDo));
-    console.log(temp);
+    //console.log(temp);
     index++;
     localStorage.setItem("index", index);
 })
 
 btnOneEl.on('click', function(event){
-    temp = onePM.val()
-    toDo.push(temp);
+    tempArray[4] = onePM.val()
+    toDo[4] = (tempArray[4]);
     localStorage.setItem("toDo", JSON.stringify(toDo));
-    console.log(temp);
+    //console.log(temp);
     index++;
     localStorage.setItem("index", index);
 })
 
 btnTwoEl.on('click', function(event){
-    temp = twoPM.val()
-    toDo.push(temp);
+    tempArray[5] = twoPM.val()
+    toDo[5] = (tempArray[5]);
     localStorage.setItem("toDo", JSON.stringify(toDo));
-    console.log(temp);
+    //console.log(temp);
     index++;
     localStorage.setItem("index", index);
 })
 
 btnThreeEl.on('click', function(event){
-    temp = threePM.val()
-    toDo.push(temp);
+    tempArray[6] = threePM.val()
+    toDo[6] = (tempArray[6]);
     localStorage.setItem("toDo", JSON.stringify(toDo));
-    console.log(temp);
+    //console.log(temp);
     index++;
     localStorage.setItem("index", index);
 })
 
 btnFourEl.on('click', function(event){
-    temp = fourPM.val()
-    toDo.push(temp);
+    tempArray[7] = fourPM.val()
+    toDo[7] = (tempArray[7]);
     localStorage.setItem("toDo", JSON.stringify(toDo));
-    console.log(temp);
+    //console.log(temp);
     index++;
     localStorage.setItem("index", index);
 })
 
 btnFiveEl.on('click', function(event){
-    temp = fivePM.val()
-    toDo.push(temp);
+    tempArray[8] = fivePM.val()
+    toDo[8] = (tempArray[8]);
     localStorage.setItem("toDo", JSON.stringify(toDo));
-    console.log(temp);
+    //console.log(temp);
     index++;
     localStorage.setItem("index", index);
 })

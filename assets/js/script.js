@@ -267,15 +267,27 @@ if (flag) {
 
 //The btn click functions to save items to local storage
 btnNineEl.on('click', function(event){
+
+    //Until toDo[0] fixes a bug where if you changed an entry it resets the list. I should probably 
+    //consolidate this into a function but I ran out of time. 
     tempArray[0] = nineAM.val();
+    toDo = ["", "", "", "", "", "", "", "", ""];
+    for (let i = 0; i < tempArray.length; i++) {
+        toDo[i] = tempArray[i];
+    }
     toDo[0] = (tempArray[0]);
+    
     localStorage.setItem("toDo", JSON.stringify(toDo));
     flag = true;
     localStorage.setItem("flag", JSON.stringify(flag));
 })
 
 btnTenEl.on('click', function(event){
-    tempArray[1] = tenAM.val()
+    tempArray[1] = tenAM.val();
+    toDo = ["", "", "", "", "", "", "", "", ""];
+    for (let i = 0; i < tempArray.length; i++) {
+        toDo[i] = tempArray[i];
+    }
     toDo[1] = (tempArray[1]);
     localStorage.setItem("toDo", JSON.stringify(toDo));
     flag = true;
@@ -283,7 +295,11 @@ btnTenEl.on('click', function(event){
 })
 
 btnElevenEl.on('click', function(event){
-    tempArray[2] = elevenAM.val()
+    tempArray[2] = elevenAM.val();
+    toDo = ["", "", "", "", "", "", "", "", ""];
+    for (let i = 0; i < tempArray.length; i++) {
+        toDo[i] = tempArray[i];
+    }
     toDo[2] = (tempArray[2]);
     localStorage.setItem("toDo", JSON.stringify(toDo));
     flag = true;
@@ -291,7 +307,11 @@ btnElevenEl.on('click', function(event){
 })
 
 btnTwelveEl.on('click', function(event){
-    tempArray[3] = twelveAM.val()
+    tempArray[3] = twelveAM.val();
+    toDo = ["", "", "", "", "", "", "", "", ""];
+    for (let i = 0; i < tempArray.length; i++) {
+        toDo[i] = tempArray[i];
+    }
     toDo[3] = (tempArray[3]);
     localStorage.setItem("toDo", JSON.stringify(toDo));
     flag = true;
@@ -299,7 +319,11 @@ btnTwelveEl.on('click', function(event){
 })
 
 btnOneEl.on('click', function(event){
-    tempArray[4] = onePM.val()
+    tempArray[4] = onePM.val();
+    toDo = ["", "", "", "", "", "", "", "", ""];
+    for (let i = 0; i < tempArray.length; i++) {
+        toDo[i] = tempArray[i];
+    }
     toDo[4] = (tempArray[4]);
     localStorage.setItem("toDo", JSON.stringify(toDo));
     flag = true;
@@ -307,7 +331,11 @@ btnOneEl.on('click', function(event){
 })
 
 btnTwoEl.on('click', function(event){
-    tempArray[5] = twoPM.val()
+    tempArray[5] = twoPM.val();
+    toDo = ["", "", "", "", "", "", "", "", ""];
+    for (let i = 0; i < tempArray.length; i++) {
+        toDo[i] = tempArray[i];
+    }
     toDo[5] = (tempArray[5]);
     localStorage.setItem("toDo", JSON.stringify(toDo));
     flag = true;
@@ -315,7 +343,11 @@ btnTwoEl.on('click', function(event){
 })
 
 btnThreeEl.on('click', function(event){
-    tempArray[6] = threePM.val()
+    tempArray[6] = threePM.val();
+    toDo = ["", "", "", "", "", "", "", "", ""];
+    for (let i = 0; i < tempArray.length; i++) {
+        toDo[i] = tempArray[i];
+    }
     toDo[6] = (tempArray[6]);
     localStorage.setItem("toDo", JSON.stringify(toDo));
     flag = true;
@@ -323,7 +355,11 @@ btnThreeEl.on('click', function(event){
 })
 
 btnFourEl.on('click', function(event){
-    tempArray[7] = fourPM.val()
+    tempArray[7] = fourPM.val();
+    toDo = ["", "", "", "", "", "", "", "", ""];
+    for (let i = 0; i < tempArray.length; i++) {
+        toDo[i] = tempArray[i];
+    }
     toDo[7] = (tempArray[7]);
     localStorage.setItem("toDo", JSON.stringify(toDo));
     flag = true;
@@ -331,7 +367,11 @@ btnFourEl.on('click', function(event){
 })
 
 btnFiveEl.on('click', function(event){
-    tempArray[8] = fivePM.val()
+    tempArray[8] = fivePM.val();
+    toDo = ["", "", "", "", "", "", "", "", ""];
+    for (let i = 0; i < tempArray.length; i++) {
+        toDo[i] = tempArray[i];
+    }
     toDo[8] = (tempArray[8]);
     localStorage.setItem("toDo", JSON.stringify(toDo));
     flag = true;

@@ -28,7 +28,8 @@ var btnFiveEl = $('#button5');
 //moment used to find time of day
 var timer = moment().format("H");
 
-//Default specifications
+//Default specifications. If toDo is empty, nothing is fetched from local storage. Otherwise, brings up
+//previous entries. NOTE: flag is used to signal that toDo was filled with data. By default, its false
 var toDo = [];
 toDo = JSON.parse(localStorage.getItem(toDo));
 var flag = false;
@@ -36,99 +37,62 @@ var flag = false;
 
 //Retrieving last data from local storage and updating
 if (!JSON.parse(localStorage.getItem("flag"))) {
-    //not working
-    console.log("toDo is empty");
     toDo = ["", "", "", "", "", "", "", "", ""];
 }
 else{
-
-    console.log("toDo is being brought in with value " + toDo);
+    //if toDo's flag is true, enters this else statememt
     flag = true;
-    
-
 }
-
-// if (JSON.parse(localStorage.getItem("index")) > 0) {
-//     index = JSON.parse(localStorage.getItem("index"));
-//     console.log("index is " + index);
-// }
 
 //tempArray needs to be used as cannot directly manipulate toDo
 var tempArray = toDo;
 
-
-
 //Putting calander date on html
 timeEl.text(moment().format("dddd, MMMM Do"));
-
-//So each row has its own block
-containerEl.children().css("display", "block");
 
 //Uses local storage data to fill out todays toDos
 function scheduleFiller(){
 
-    console.log("toDo takes values " + toDo);
     tempArray = JSON.parse(localStorage.getItem("toDo"));
 
-    for (let i = 0; i < tempArray.length; i++) {
-        console.log("tempArray["+i+"] takes value " + tempArray[i]);
-    }
-    //Maybe only fill if date is the same (????)
     for (let i = 0; i < tempArray.length; i++) {
 
         if (i == 0) {
             nineAM.val(tempArray[0]);
-            console.log("toDo[0] takes value " + tempArray[0]);
         }
 
         else if(i==1){
             
             tenAM.val(tempArray[1]);
-            console.log("toDo[1] takes value " + tempArray[1]);
         }
 
         else if(i == 2){
             elevenAM.val(tempArray[2]);
-            console.log("toDo[2] takes value " + tempArray[2]);
-
         }
 
         else if(i == 3){
             twelveAM.val(tempArray[3]);
-            console.log("toDo[3] takes value " + tempArray[3]);
-
         }
 
         else if(i == 4){
             onePM.val(tempArray[4]);
-            console.log("toDo[4] takes value " + tempArray[4]);
-
         }
 
         else if(i == 5){
             twoPM.val(tempArray[5]);
-            console.log("toDo[5] takes value " + tempArray[5]);
-
         }
 
         else if(i == 6){
             threePM.val(tempArray[6]);
-            console.log("toDo[6] takes value " + tempArray[6]);
-
         }
 
         else if(i == 7){
             fourPM.val(tempArray[7]);
-            console.log("toDo[7] takes value " + tempArray[7]);
-
         }
 
         else if(i == 8){
             fivePM.val(tempArray[8]);
-            console.log("toDo[8] takes value " + tempArray[8]);
-
-        }
-        
+        }   
     }
 }
 
@@ -151,7 +115,8 @@ function colourChanger() {
     }
 
     else if(9 < timer < 21 ) {
-        // console.log('entering final elseif');
+        //Enters if statement thats appropriate for the hour of the day...
+            //sets particular timeblock to red, everything before green, and everything after grey
         if (timer == 9) {
             colorChange = $(document.getElementsByClassName('nine'));
             colorChange.css("background-color", "red");
@@ -284,25 +249,25 @@ function colourChanger() {
             colorChange.css("background-color", "green");
 
         }
-
+        //The error catch
         else{
-            //console.log("error timer isnt within range");
+            console.log("error timer isnt within range");
         }
     }
 }
 
 //Function calls
 colourChanger();
+
+//Only calls to fill times if toDo flag is true (localstorage has items in it)
 if (flag) {
     scheduleFiller();
 }
 
 
-//NOT WORKING IF YOU CHANGE TODO ENTRY AFTER RELOADING
 //The btn click functions to save items to local storage
 btnNineEl.on('click', function(event){
     tempArray[0] = nineAM.val();
-    //console.log(temp);
     toDo[0] = (tempArray[0]);
     localStorage.setItem("toDo", JSON.stringify(toDo));
     flag = true;
@@ -315,7 +280,6 @@ btnTenEl.on('click', function(event){
     localStorage.setItem("toDo", JSON.stringify(toDo));
     flag = true;
     localStorage.setItem("flag", JSON.stringify(flag));
-    //console.log(temp);
 })
 
 btnElevenEl.on('click', function(event){
@@ -343,8 +307,6 @@ btnOneEl.on('click', function(event){
 })
 
 btnTwoEl.on('click', function(event){
-    console.log("temp array takes value " + tempArray);
-    console.log("toDo takes value " + toDo);
     tempArray[5] = twoPM.val()
     toDo[5] = (tempArray[5]);
     localStorage.setItem("toDo", JSON.stringify(toDo));

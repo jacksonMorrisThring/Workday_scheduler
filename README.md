@@ -1,4 +1,27 @@
-# Workday_scheduler
-A workplace schedular based on date, and time of day between 9-5. Using jQuery and localStorage to input items to list, retrieve items from list, and color the schedular cleanly.
+# 📖 Workday scheduler
 
-The scheduler diplays the date at the top of the page, and if items have been entered and localStorage hasnt been cleared, it will retrieve the items and allow editing and changing of schedule.
+## this webpage serves as a...
+
+* Open source way to schedule your day based on hourly blocks
+
+* Uses local storage to keep items even if the page has been exited
+
+* Excercise to extend and practice my coding skills
+
+## as I continue, I will...
+
+* Update the page visually and in reference to the back-end code
+
+* make it more accessible as I learn more 
+
+## The webpage...
+
+* displays date
+
+* highlights time
+
+* allows for visually easy scheduling personalised for your day
+
+* uses jQuery, bootstrap and local storage 
+
+

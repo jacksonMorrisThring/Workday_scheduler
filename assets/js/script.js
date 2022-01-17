@@ -102,7 +102,7 @@ function colourChanger() {
     //Variable used for targeting the html elements 1 by 1
     var colorChange;
 
-    if (timer > 21) {
+    if (timer > 17) {
         //all blocks grey
         colorChange = $(document.getElementsByClassName('inputBox'));
         colorChange.css("background-color", "grey");
@@ -114,7 +114,7 @@ function colourChanger() {
         colorChange.css("background-color", "green");
     }
 
-    else if(9 < timer < 21 ) {
+    else if(9 < timer < 17 ) {
         //Enters if statement thats appropriate for the hour of the day...
             //sets particular timeblock to red, everything before green, and everything after grey
         if (timer == 9) {
